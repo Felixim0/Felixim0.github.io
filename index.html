@@ -2,10 +2,203 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Placeholder Title</title>
+    <style>
+        /* Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: #fff;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #nav-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        #nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            background: rgba(0,0,0,0.9);
+            width: 100%;
+            left: 0;
+        }
+
+        #nav-menu li {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        #nav-menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        /* Title */
+        #title {
+            font-size: 5em;
+            text-align: center;
+            margin-top: 100px;
+            animation: rotateTitle 10s infinite linear;
+            text-shadow: 
+                1px 1px 2px #000, 
+                -1px -1px 0 #000,  
+                -1px 1px 0 #000, 
+                1px -1px 0 #000;
+        }
+
+        @keyframes rotateTitle {
+            0% {
+                transform: perspective(500px) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(500px) rotateY(360deg);
+            }
+        }
+
+        /* Cube */
+        .cube-container {
+            perspective: 800px;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spinCube 10s infinite linear;
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.3);
+            line-height: 200px;
+            font-size: 2em;
+            text-align: center;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .front  { transform: rotateY(   0deg) translateZ(100px); }
+        .back   { transform: rotateY( 180deg) translateZ(100px); }
+        .right  { transform: rotateY(  90deg) translateZ(100px); }
+        .left   { transform: rotateY( -90deg) translateZ(100px); }
+        .top    { transform: rotateX(  90deg) translateZ(100px); }
+        .bottom { transform: rotateX( -90deg) translateZ(100px); }
+
+        @keyframes spinCube {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        /* Content */
+        #content {
+            padding: 20px;
+            font-size: 1.2em;
+            line-height: 1.5em;
+        }
+
+        /* Footer */
+        #footer {
+            background: rgba(0,0,0,0.7);
+            padding: 20px;
+            text-align: center;
+        }
+
+        #footer p {
+            margin: 5px 0;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var navIcon = document.getElementById('nav-icon');
+            var navMenu = document.getElementById('nav-menu');
+            navIcon.addEventListener('click', function() {
+                if(navMenu.style.display === 'flex') {
+                    navMenu.style.display = 'none';
+                } else {
+                    navMenu.style.display = 'flex';
+                }
+            });
+        });
+    </script>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page!</h1>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div id="nav-icon">&#9776;</div>
+        <ul id="nav-menu">
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">Option 2</a></li>
+            <li><a href="#">Option 3</a></li>
+        </ul>
+    </nav>
+
+    <!-- Title -->
+    <h1 id="title">Placeholder Title</h1>
+
+    <!-- 3D Cube -->
+    <div class="cube-container">
+        <div class="cube">
+            <div class="face front">Front</div>
+            <div class="face back">Back</div>
+            <div class="face right">Right</div>
+            <div class="face left">Left</div>
+            <div class="face top">Top</div>
+            <div class="face bottom">Bottom</div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.</p>
+        <p>Nulla facilisi. Sed ut eros non massa dapibus pulvinar. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus.</p>
+        <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec rutrum congue leo eget malesuada.</p>
+        <p>Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Proin eget tortor risus.</p>
+        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada.</p>
+        <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.</p>
+        <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
+        <p>Nulla quis lorem ut libero malesuada feugiat.</p>
+        <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>Need to reach us? Try sending a carrier pigeon.</p>
+        <p>Or maybe just shout really loud. We might hear you.</p>
+    </footer>
 </body>
 </html>
